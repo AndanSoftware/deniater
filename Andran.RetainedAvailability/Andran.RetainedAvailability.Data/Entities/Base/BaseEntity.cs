@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Andran.RetainedAvailability.Data.Entities.Base
 {
-    public interface IEntity
+    public abstract class BaseEntity
     {
-        int Id { get; set; }
-        bool IsDirty { get; set; }
+        public  int Id { get; set; }
     }
 }

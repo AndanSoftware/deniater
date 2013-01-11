@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Andran.RetainedAvailability.Data.Entities
 {
-    public class Appliance : IEntity
+    public class Appliance : BaseEntity
     {
 
     }
