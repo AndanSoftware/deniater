@@ -1,5 +1,0 @@
-﻿CREATE TABLE [dbo].[LT_StaffStatus]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Status] VARCHAR(10) NOT NULL
-)
