@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Andran.RetainedAvailability.Database</Name>
+    <Name>Database1</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{6b1c621e-8670-4a06-a72c-1c7120c8ce60}</ProjectGuid>
+    <ProjectGuid>{3029c951-7702-4a86-8c38-eb79d4de4e6e}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Andran.RetainedAvailability.Database</RootNamespace>
-    <AssemblyName>Andran.RetainedAvailability.Database</AssemblyName>
+    <RootNamespace>Database1</RootNamespace>
+    <AssemblyName>Database1</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -53,12 +53,5 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
-    <Folder Include="Programability" />
-    <Folder Include="Programability\StoredProcedures" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="Tables\Appliance.sql" />
-    <Build Include="Programability\StoredProcedures\Appliance_Fetch.sql" />
   </ItemGroup>
 </Project>
