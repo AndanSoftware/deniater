@@ -21,4 +21,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="StaffId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="eff1cf76-ac59-471e-978a-d365d3fe3c1b" ChangeDateTime="01/11/2013 22:19:34">
+    <Property Name="ElementName" Value="[dbo].[Link_Appliance_Skill].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Link_Appliance_Skill]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ApplianceID" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a8ec5c2d-dde3-42b0-bbad-a85e418490ed" ChangeDateTime="01/11/2013 22:19:39">
+    <Property Name="ElementName" Value="[dbo].[Link_Appliance_Skill].[ApplianceID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Link_Appliance_Skill]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ApplianceI" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5d2c4c69-ce20-425f-8bd1-62280d95de38" ChangeDateTime="01/11/2013 22:19:48">
+    <Property Name="ElementName" Value="[dbo].[Link_Appliance_Skill].[ApplianceI]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Link_Appliance_Skill]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ApplianceId" />
+  </Operation>
 </Operations>
