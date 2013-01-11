@@ -4,6 +4,6 @@
     [StaffId] UNIQUEIDENTIFIER NOT NULL, 
     [StartDateTime] DATETIME NOT NULL, 
     [EndDateTime] DATETIME NOT NULL, 
-    [UnavailabilityReasonId] NCHAR(10) NOT NULL, 
+    [UnavailabilityReasonId] INT NOT NULL, 
     [Notes] VARCHAR(300) NULL
 )
