@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Andran.RetainedAvailability.DAL.Repositories.Base
 {
-    public interface ICrewMemberRepository
+    public interface ICrewMemberRepository : IRepository<CrewMember>
     {
         IEnumerable<Skill> GetSkills(Guid crewMemberId);
     }
