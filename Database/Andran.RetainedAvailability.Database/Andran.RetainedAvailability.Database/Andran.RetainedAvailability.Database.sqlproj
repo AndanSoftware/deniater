@@ -56,15 +56,22 @@
     <Folder Include="Tables" />
     <Folder Include="Programability" />
     <Folder Include="Programability\StoredProcedures" />
+    <Folder Include="Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Appliance.sql" />
     <Build Include="Tables\Link_Appliance_Skill.sql" />
-    <Build Include="Tables\LT_StaffStatus.sql" />
     <Build Include="Tables\LT_UnavailabilityReason.sql" />
     <Build Include="Tables\Skill.sql" />
     <Build Include="Tables\Station.sql" />
     <Build Include="Tables\Unavailability.sql" />
     <Build Include="Programability\StoredProcedures\Appliance_Fetch.sql" />
+    <Build Include="Tables\CrewMember.sql" />
+    <Build Include="Tables\Link_CrewMember_ContactType.sql" />
+    <Build Include="Tables\Link_CrewMember_Watch.sql" />
+    <Build Include="Tables\LT_ContactType.sql" />
+    <Build Include="Tables\LT_CrewMemberStatus.sql" />
+    <Build Include="Tables\Watch.sql" />
+    <Build Include="Programability\StoredProcedures\CrewMembers_FetchByWatchId.sql" />
   </ItemGroup>
 </Project>
