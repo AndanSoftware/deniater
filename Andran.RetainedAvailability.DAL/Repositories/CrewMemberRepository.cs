@@ -6,10 +6,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Andran.RetainedAvailability.DAL.Repositories.Base;
 
 namespace Andran.RetainedAvailability.DAL.Repositories
 {
-    public class CrewMemberRepository
+    public class CrewMemberRepository : IRepository<CrewMember>, ICrewMemberRepository
     {
         private readonly string _connectionString;
         private SqlConnection _conn;
@@ -19,14 +20,14 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _conn = new SqlConnection("Server=(local); Database=Andran.RetainedAvailability; Integrated Security=SSPI;");
         }
 
-        public CrewMember GetCrewMember(Guid crewMemberID)
+        public CrewMember GetById(Guid id)
         {
             using (_conn)
             {
                 using (var cmd = new SqlCommand("CrewMember_Fetch"))
                 {
                     cmd.Parameters.Add(new SqlParameter("@crewMemberID",
-                        crewMemberID));
+                        id));
 
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     SqlDataReader dr = cmd.ExecuteReader();
