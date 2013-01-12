@@ -60,6 +60,8 @@
     <Folder Include="Programability\StoredProcedures" />
     <Folder Include="Views" />
     <Folder Include="Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Programability\StoredProcedures\Appliance_Fetch.sql" />

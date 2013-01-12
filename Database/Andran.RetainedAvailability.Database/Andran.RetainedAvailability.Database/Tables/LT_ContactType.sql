@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[LT_ContactType]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
-    [ContacType] VARCHAR(30) NOT NULL
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ContactType] VARCHAR(30) NOT NULL
 )

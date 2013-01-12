@@ -21,4 +21,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CrewMemberId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="6c67c9d2-cef2-4db5-aae1-43961bce4e3f" ChangeDateTime="01/12/2013 21:53:20">
+    <Property Name="ElementName" Value="[dbo].[LT_ContactType].[ContacType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LT_ContactType]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ContactType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="affe2b71-2193-42d5-bb96-4dec8bf019fb" ChangeDateTime="01/12/2013 21:56:32">
+    <Property Name="ElementName" Value="[dbo].[LT_UnavailabilityReason].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[LT_UnavailabilityReason]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Reason" />
+  </Operation>
 </Operations>

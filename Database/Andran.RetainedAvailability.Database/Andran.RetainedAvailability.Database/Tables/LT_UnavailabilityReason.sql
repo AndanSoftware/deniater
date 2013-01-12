@@ -4,5 +4,5 @@
     [Symbol] VARCHAR NOT NULL, 
     [ColourHex] VARCHAR(8) NULL, 
     [Icon] VARCHAR(20) NULL, 
-    [Name] NCHAR(10) NULL
+    [Reason] NCHAR(20) NOT NULL
 )
