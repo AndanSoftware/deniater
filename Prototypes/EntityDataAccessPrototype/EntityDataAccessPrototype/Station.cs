@@ -14,8 +14,16 @@ namespace EntityDataAccessPrototype
         {
             get
             {
+                // If it's null we know we haven't loaded it yet
+
                 if (_crewMembers == null)
+
+                    // So we can load it
+
                     _crewMembers = CrewMemberList.GetCrewMemberList(this);
+
+                // And now it's ready to return to the caller
+
                 return _crewMembers;
             }
         }
