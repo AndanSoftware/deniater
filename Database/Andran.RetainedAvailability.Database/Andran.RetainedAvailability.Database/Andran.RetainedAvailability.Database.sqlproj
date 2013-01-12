@@ -53,25 +53,29 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Tables" />
     <Folder Include="Programability" />
     <Folder Include="Programability\StoredProcedures" />
     <Folder Include="Views" />
+    <Folder Include="Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\Appliance.sql" />
-    <Build Include="Tables\Link_Appliance_Skill.sql" />
-    <Build Include="Tables\LT_UnavailabilityReason.sql" />
-    <Build Include="Tables\Skill.sql" />
-    <Build Include="Tables\Station.sql" />
-    <Build Include="Tables\Unavailability.sql" />
     <Build Include="Programability\StoredProcedures\Appliance_Fetch.sql" />
+    <Build Include="Programability\StoredProcedures\CrewMembers_FetchByWatchId.sql" />
+    <Build Include="Tables\Appliance.sql" />
     <Build Include="Tables\CrewMember.sql" />
+    <Build Include="Tables\Link_Appliance_Skill.sql" />
     <Build Include="Tables\Link_CrewMember_ContactType.sql" />
     <Build Include="Tables\Link_CrewMember_Watch.sql" />
     <Build Include="Tables\LT_ContactType.sql" />
     <Build Include="Tables\LT_CrewMemberStatus.sql" />
+    <Build Include="Tables\LT_UnavailabilityReason.sql" />
+    <Build Include="Tables\Skill.sql" />
+    <Build Include="Tables\Station.sql" />
+    <Build Include="Tables\Unavailability.sql" />
     <Build Include="Tables\Watch.sql" />
-    <Build Include="Programability\StoredProcedures\CrewMembers_FetchByWatchId.sql" />
+    <Build Include="Tables\Link_CrewMember_Skill.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Andran.RetainedAvailability.Database.refactorlog" />
   </ItemGroup>
 </Project>
