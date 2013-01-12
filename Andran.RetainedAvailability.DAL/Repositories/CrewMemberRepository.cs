@@ -19,7 +19,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _conn = new SqlConnection("Server=(local); Database=Andran.RetainedAvailability; Integrated Security=SSPI;");
         }
 
-        public IEnumerable<CrewMember> GetCrewMember(Guid crewMemberID)
+        public CrewMember GetCrewMember(Guid crewMemberID)
         {
             using (_conn)
             {
@@ -32,9 +32,15 @@ namespace Andran.RetainedAvailability.DAL.Repositories
                     SqlDataReader dr = cmd.ExecuteReader();
                     dr.NextResult();
 
-                    // Not returning the result here. How are we getting our
-                    // complex types back from SQL?
-                    return new List<CrewMember>();
+                    var cm = new CrewMember()
+                    {
+                        FirstName = (string)dr["FirstName"],
+                        LastName = (string)dr["LastName"],
+                        IsDriver = (bool)dr["IsDriver"]
+                    };
+                    // How do we deal with loading say Watches here?
+                    // Dont want spaghetti repos everywhere.
+                    return cm ;
                 }
             }
         }
