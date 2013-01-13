@@ -10,11 +10,12 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using Andran.RetainedAvailability.Web.Filters;
 using Andran.RetainedAvailability.Web.Models;
+using Andran.RetainedAvailability.DAL;
+using Andran.RetainedAvailability.Data.Entities;
 
 namespace Andran.RetainedAvailability.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -263,7 +264,7 @@ namespace Andran.RetainedAvailability.Web.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (var db = new RetainedAvailabilityContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

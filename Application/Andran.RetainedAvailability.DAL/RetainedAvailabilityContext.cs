@@ -18,6 +18,7 @@ namespace Andran.RetainedAvailability.DAL
         }
 
         // Tables
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Station> Stations { get; set; }
         public DbSet<Appliance> Appliances { get; set; }
         public DbSet<CrewMember> CrewMembers { get; set; }

@@ -12,6 +12,8 @@ namespace Andran.RetainedAvailability.DAL.Mappings
     {
         public UserProfileMapping()
         {
+            HasKey(p => p.UserProfileID);
+
             Property(p => p.UserName)
                 .IsRequired()
                 .HasMaxLength(15);

@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebMatrix.WebData;
 
 namespace Andran.RetainedAvailability.Web
 {
@@ -16,6 +17,8 @@ namespace Andran.RetainedAvailability.Web
     {
         protected void Application_Start()
         {
+            WebSecurity.InitializeDatabaseConnection("Andran.RetainedAvailability", "UserProfiles", "UserProfileID", "UserName", autoCreateTables: true);
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

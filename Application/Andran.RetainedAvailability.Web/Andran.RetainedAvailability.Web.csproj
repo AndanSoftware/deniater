@@ -163,7 +163,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -284,9 +283,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Andran.RetainedAvailability.DAL\Andran.RetainedAvailability.DAL.csproj">
+      <Project>{8d5737a7-a529-4eed-b1cb-5fd6e72c95f0}</Project>
+      <Name>Andran.RetainedAvailability.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Andran.RetainedAvailability.Data\Andran.RetainedAvailability.Data.csproj">
+      <Project>{9fa9af4f-82bb-40f1-8b6e-c25abd75029a}</Project>
+      <Name>Andran.RetainedAvailability.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
