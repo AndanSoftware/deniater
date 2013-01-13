@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,10 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\ApplianceMapping.cs" />
+    <Compile Include="Mappings\CrewMemberMapping.cs" />
+    <Compile Include="Mappings\SkillMapping.cs" />
+    <Compile Include="Mappings\SkillTypeMapping.cs" />
+    <Compile Include="Mappings\StationMapping.cs" />
+    <Compile Include="Mappings\UserProfileMapping.cs" />
+    <Compile Include="Mappings\WatchMapping.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Base\ICrewMemberRepository.cs" />
-    <Compile Include="Repositories\Base\IRepository.cs" />
-    <Compile Include="Repositories\CrewMemberRepository.cs" />
+    <Compile Include="Repositories\ApplianceRepository.cs" />
+    <Compile Include="RetainedAvailabilityContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Andran.RetainedAvailability.Data\Andran.RetainedAvailability.Data.csproj">
@@ -50,6 +64,11 @@
       <Name>Andran.RetainedAvailability.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
