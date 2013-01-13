@@ -10,7 +10,7 @@ namespace Andran.RetainedAvailability.Data.Entities
     public class UserProfile
     {
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public Guid UserProfileID { get; set; }
+        public int UserProfileID { get; set; }
 
         public string UserName { get; set; }
         public string Email { get; set; }

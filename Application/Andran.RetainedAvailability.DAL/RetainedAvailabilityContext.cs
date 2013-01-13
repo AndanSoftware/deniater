@@ -42,6 +42,9 @@ namespace Andran.RetainedAvailability.DAL
             modelBuilder.Configurations.Add(new StationMapping());
             modelBuilder.Configurations.Add(new UserProfileMapping());
             modelBuilder.Configurations.Add(new WatchMapping());
+            modelBuilder.Configurations.Add(new UnavailabilityMapping());
+            modelBuilder.Configurations.Add(new UnavailabilityReasonMapping());
+            modelBuilder.Configurations.Add(new ApplianceOfflinePeriodMapping());
 
             base.OnModelCreating(modelBuilder);
         }
