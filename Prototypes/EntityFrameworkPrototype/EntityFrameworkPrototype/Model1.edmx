@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="RAModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="RAModel.Store.__RefactorLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Appliance" EntityType="RAModel.Store.Appliance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CrewMember" EntityType="RAModel.Store.CrewMember" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Link_Appliance_Skill" EntityType="RAModel.Store.Link_Appliance_Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Link_CrewMember_ContactType" EntityType="RAModel.Store.Link_CrewMember_ContactType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Link_CrewMember_Skill" EntityType="RAModel.Store.Link_CrewMember_Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Link_CrewMember_Watch" EntityType="RAModel.Store.Link_CrewMember_Watch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LT_ContactType" EntityType="RAModel.Store.LT_ContactType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LT_CrewMemberStatus" EntityType="RAModel.Store.LT_CrewMemberStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LT_OfflineHourReason" EntityType="RAModel.Store.LT_OfflineHourReason" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LT_UnavailabilityReason" EntityType="RAModel.Store.LT_UnavailabilityReason" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OfflineHour" EntityType="RAModel.Store.OfflineHour" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Skill" EntityType="RAModel.Store.Skill" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Station" EntityType="RAModel.Store.Station" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Unavailability" EntityType="RAModel.Store.Unavailability" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Watch" EntityType="RAModel.Store.Watch" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Link_Appliance_Skill_ToTableAppliance" Association="RAModel.Store.FK_Link_Appliance_Skill_ToTableAppliance">
+            <End Role="Appliance" EntitySet="Appliance" />
+            <End Role="Link_Appliance_Skill" EntitySet="Link_Appliance_Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Link_Appliance_Skill_ToTableSkill" Association="RAModel.Store.FK_Link_Appliance_Skill_ToTableSkill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="Link_Appliance_Skill" EntitySet="Link_Appliance_Skill" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appliance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="MinimumCrewCount" Type="smallint" Nullable="false" />
+          <Property Name="MaximumCrewCount" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CrewMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="CrewMemberStatusId" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link_Appliance_Skill">
+          <Key>
+            <PropertyRef Name="ApplianceId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="ApplianceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_ContactType">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="ContacTypeId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContacTypeId" Type="smallint" Nullable="false" />
+          <Property Name="ContactValue" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_Skill">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_Watch">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="WatchId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WatchId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LT_ContactType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactType" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="LT_CrewMemberStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LT_OfflineHourReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="LT_UnavailabilityReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="varchar" Nullable="false" MaxLength="1" />
+          <Property Name="ColourHex" Type="varchar" MaxLength="8" />
+          <Property Name="Icon" Type="varchar" MaxLength="20" />
+          <Property Name="Reason" Type="nchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="OfflineHour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UnavailabilityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OfflineHourReasonId" Type="int" Nullable="false" />
+          <Property Name="ApplianceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime" Nullable="false" />
+          <Property Name="AuditCreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AuditCreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="PostCode" Type="varchar" Nullable="false" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Unavailability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StaffId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UnavailabilityReasonId" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="HexColour" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <Association Name="FK_Link_Appliance_Skill_ToTableAppliance">
+          <End Role="Appliance" Type="RAModel.Store.Appliance" Multiplicity="1" />
+          <End Role="Link_Appliance_Skill" Type="RAModel.Store.Link_Appliance_Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appliance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Link_Appliance_Skill">
+              <PropertyRef Name="ApplianceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Link_Appliance_Skill_ToTableSkill">
+          <End Role="Skill" Type="RAModel.Store.Skill" Multiplicity="1" />
+          <End Role="Link_Appliance_Skill" Type="RAModel.Store.Link_Appliance_Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Link_Appliance_Skill">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Appliance_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="applianceId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="minimumCrewCount" Type="smallint" Mode="In" />
+          <Parameter Name="maximumCrewCount" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="Appliance_Fetch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="applianceID" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="CrewMembers_FetchByWatchId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="watchId" Type="uniqueidentifier" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RAModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RAEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="RAModel.C__RefactorLog" />
+          <EntitySet Name="Appliances" EntityType="RAModel.Appliance" />
+          <EntitySet Name="CrewMembers" EntityType="RAModel.CrewMember" />
+          <EntitySet Name="Link_CrewMember_ContactType" EntityType="RAModel.Link_CrewMember_ContactType" />
+          <EntitySet Name="Link_CrewMember_Skill" EntityType="RAModel.Link_CrewMember_Skill" />
+          <EntitySet Name="Link_CrewMember_Watch" EntityType="RAModel.Link_CrewMember_Watch" />
+          <EntitySet Name="LT_ContactType" EntityType="RAModel.LT_ContactType" />
+          <EntitySet Name="LT_CrewMemberStatus" EntityType="RAModel.LT_CrewMemberStatus" />
+          <EntitySet Name="LT_OfflineHourReason" EntityType="RAModel.LT_OfflineHourReason" />
+          <EntitySet Name="LT_UnavailabilityReason" EntityType="RAModel.LT_UnavailabilityReason" />
+          <EntitySet Name="OfflineHours" EntityType="RAModel.OfflineHour" />
+          <EntitySet Name="Skills" EntityType="RAModel.Skill" />
+          <EntitySet Name="Stations" EntityType="RAModel.Station" />
+          <EntitySet Name="Unavailabilities" EntityType="RAModel.Unavailability" />
+          <EntitySet Name="Watches" EntityType="RAModel.Watch" />
+          <AssociationSet Name="Link_Appliance_Skill" Association="RAModel.Link_Appliance_Skill">
+            <End Role="Appliance" EntitySet="Appliances" />
+            <End Role="Skill" EntitySet="Skills" />
+          </AssociationSet>
+          <FunctionImport Name="Appliance_Create">
+            <Parameter Name="applianceId" Mode="In" Type="Guid" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="minimumCrewCount" Mode="In" Type="Int16" />
+            <Parameter Name="maximumCrewCount" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="Appliance_Fetch" ReturnType="Collection(RAModel.Appliance_Fetch_Result)">
+            <Parameter Name="applianceID" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="CrewMembers_FetchByWatchId" ReturnType="Collection(RAModel.CrewMembers_FetchByWatchId_Result)">
+            <Parameter Name="watchId" Mode="In" Type="Guid" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appliance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="MinimumCrewCount" Type="Int16" Nullable="false" />
+          <Property Name="MaximumCrewCount" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Skills" Relationship="RAModel.Link_Appliance_Skill" FromRole="Appliance" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="CrewMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CrewMemberStatusId" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_ContactType">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="ContacTypeId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="Guid" Nullable="false" />
+          <Property Name="ContacTypeId" Type="Int16" Nullable="false" />
+          <Property Name="ContactValue" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_Skill">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="Guid" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Link_CrewMember_Watch">
+          <Key>
+            <PropertyRef Name="CrewMemberId" />
+            <PropertyRef Name="WatchId" />
+          </Key>
+          <Property Name="CrewMemberId" Type="Guid" Nullable="false" />
+          <Property Name="WatchId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LT_ContactType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactType" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="LT_CrewMemberStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="LT_OfflineHourReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="LT_UnavailabilityReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="ColourHex" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Icon" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="OfflineHour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UnavailabilityId" Type="Guid" Nullable="false" />
+          <Property Name="OfflineHourReasonId" Type="Int32" Nullable="false" />
+          <Property Name="ApplianceId" Type="Guid" Nullable="false" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuditCreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="AuditCreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Appliances" Relationship="RAModel.Link_Appliance_Skill" FromRole="Skill" ToRole="Appliance" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="PostCode" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Unavailability">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StaffId" Type="Guid" Nullable="false" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UnavailabilityReasonId" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Watch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HexColour" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="Link_Appliance_Skill">
+          <End Role="Appliance" Type="RAModel.Appliance" Multiplicity="*" />
+          <End Role="Skill" Type="RAModel.Skill" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="Appliance_Fetch_Result">
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
+          <Property Type="Int16" Name="MinimumCrewCount" Nullable="false" />
+          <Property Type="Int16" Name="MaximumCrewCount" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="CrewMembers_FetchByWatchId_Result">
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="30" />
+          <Property Type="Int16" Name="CrewMemberStatusId" Nullable="false" />
+          <Property Type="Guid" Name="CrewMemberId" Nullable="false" />
+          <Property Type="Guid" Name="WatchId" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RAModelStoreContainer" CdmEntityContainer="RAEntities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="RAModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appliances">
+            <EntityTypeMapping TypeName="RAModel.Appliance">
+              <MappingFragment StoreEntitySet="Appliance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MinimumCrewCount" ColumnName="MinimumCrewCount" />
+                <ScalarProperty Name="MaximumCrewCount" ColumnName="MaximumCrewCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CrewMembers">
+            <EntityTypeMapping TypeName="RAModel.CrewMember">
+              <MappingFragment StoreEntitySet="CrewMember">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CrewMemberStatusId" ColumnName="CrewMemberStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Link_CrewMember_ContactType">
+            <EntityTypeMapping TypeName="RAModel.Link_CrewMember_ContactType">
+              <MappingFragment StoreEntitySet="Link_CrewMember_ContactType">
+                <ScalarProperty Name="CrewMemberId" ColumnName="CrewMemberId" />
+                <ScalarProperty Name="ContacTypeId" ColumnName="ContacTypeId" />
+                <ScalarProperty Name="ContactValue" ColumnName="ContactValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Link_CrewMember_Skill">
+            <EntityTypeMapping TypeName="RAModel.Link_CrewMember_Skill">
+              <MappingFragment StoreEntitySet="Link_CrewMember_Skill">
+                <ScalarProperty Name="CrewMemberId" ColumnName="CrewMemberId" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Link_CrewMember_Watch">
+            <EntityTypeMapping TypeName="RAModel.Link_CrewMember_Watch">
+              <MappingFragment StoreEntitySet="Link_CrewMember_Watch">
+                <ScalarProperty Name="CrewMemberId" ColumnName="CrewMemberId" />
+                <ScalarProperty Name="WatchId" ColumnName="WatchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LT_ContactType">
+            <EntityTypeMapping TypeName="RAModel.LT_ContactType">
+              <MappingFragment StoreEntitySet="LT_ContactType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LT_CrewMemberStatus">
+            <EntityTypeMapping TypeName="RAModel.LT_CrewMemberStatus">
+              <MappingFragment StoreEntitySet="LT_CrewMemberStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LT_OfflineHourReason">
+            <EntityTypeMapping TypeName="RAModel.LT_OfflineHourReason">
+              <MappingFragment StoreEntitySet="LT_OfflineHourReason">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LT_UnavailabilityReason">
+            <EntityTypeMapping TypeName="RAModel.LT_UnavailabilityReason">
+              <MappingFragment StoreEntitySet="LT_UnavailabilityReason">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="ColourHex" ColumnName="ColourHex" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfflineHours">
+            <EntityTypeMapping TypeName="RAModel.OfflineHour">
+              <MappingFragment StoreEntitySet="OfflineHour">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UnavailabilityId" ColumnName="UnavailabilityId" />
+                <ScalarProperty Name="OfflineHourReasonId" ColumnName="OfflineHourReasonId" />
+                <ScalarProperty Name="ApplianceId" ColumnName="ApplianceId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="AuditCreatedBy" ColumnName="AuditCreatedBy" />
+                <ScalarProperty Name="AuditCreatedDate" ColumnName="AuditCreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="RAModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="RAModel.Station">
+              <MappingFragment StoreEntitySet="Station">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unavailabilities">
+            <EntityTypeMapping TypeName="RAModel.Unavailability">
+              <MappingFragment StoreEntitySet="Unavailability">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="UnavailabilityReasonId" ColumnName="UnavailabilityReasonId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Watches">
+            <EntityTypeMapping TypeName="RAModel.Watch">
+              <MappingFragment StoreEntitySet="Watch">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HexColour" ColumnName="HexColour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Link_Appliance_Skill" TypeName="RAModel.Link_Appliance_Skill" StoreEntitySet="Link_Appliance_Skill">
+            <EndProperty Name="Appliance">
+              <ScalarProperty Name="Id" ColumnName="ApplianceId" />
+            </EndProperty>
+            <EndProperty Name="Skill">
+              <ScalarProperty Name="Id" ColumnName="SkillId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="Appliance_Create" FunctionName="RAModel.Store.Appliance_Create" />
+          <FunctionImportMapping FunctionImportName="Appliance_Fetch" FunctionName="RAModel.Store.Appliance_Fetch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAModel.Appliance_Fetch_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MinimumCrewCount" ColumnName="MinimumCrewCount" />
+                <ScalarProperty Name="MaximumCrewCount" ColumnName="MaximumCrewCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CrewMembers_FetchByWatchId" FunctionName="RAModel.Store.CrewMembers_FetchByWatchId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RAModel.CrewMembers_FetchByWatchId_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="CrewMemberStatusId" ColumnName="CrewMemberStatusId" />
+                <ScalarProperty Name="CrewMemberId" ColumnName="CrewMemberId" />
+                <ScalarProperty Name="WatchId" ColumnName="WatchId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
