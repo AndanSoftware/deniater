@@ -12,7 +12,7 @@ namespace Andran.RetainedAvailability.DAL
     public class RetainedAvailabilityContext : DbContext
     {
         public RetainedAvailabilityContext()
-            : base("Andan.RetainedAvailability")
+            : base("Andran.RetainedAvailability")
         {
 
         }
