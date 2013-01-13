@@ -26,6 +26,11 @@ namespace Andran.RetainedAvailability.DAL
         public DbSet<SkillType> SkillTypes { get; set; }
         public DbSet<Watch> Watches { get; set; }
 
+        public DbSet<ApplianceOfflinePeriod> ApplianceOfflinePeriods { get; set; }
+        public DbSet<ApplianceOfflinePeriodReason> ApplianceOfflinePeriodReasons { get; set; }
+        public DbSet<Unavailability> Unavailability { get; set; }
+        public DbSet<UnavailabilityReason> UnavailabilityReasons { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Add Mapping configurations here

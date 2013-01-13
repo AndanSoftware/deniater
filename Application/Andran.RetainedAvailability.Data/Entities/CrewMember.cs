@@ -22,5 +22,6 @@ namespace Andran.RetainedAvailability.Data.Entities
         public Watch Watch { get; set; }
 
         public ICollection<Skill> Skills { get; set; }
+        public ICollection<Unavailability> Unavailabilitys { get; set; }
     }
 }

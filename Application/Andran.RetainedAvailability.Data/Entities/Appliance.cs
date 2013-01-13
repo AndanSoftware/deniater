@@ -19,5 +19,6 @@ namespace Andran.RetainedAvailability.Data.Entities
         public Station Station { get; set; }
 
         public ICollection<Skill> SkillsRequired { get; set; }
+        public ICollection<ApplianceOfflinePeriod> ApplianceOfflinePeriods { get; set; }
     }
 }

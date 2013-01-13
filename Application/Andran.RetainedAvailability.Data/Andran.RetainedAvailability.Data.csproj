@@ -30,12 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,9 +42,13 @@
   <ItemGroup>
     <Compile Include="Entities\Appliance.cs" />
     <Compile Include="Entities\CrewMember.cs" />
+    <Compile Include="Entities\ApplianceOfflinePeriodReason.cs" />
+    <Compile Include="Entities\ApplianceOfflinePeriod.cs" />
     <Compile Include="Entities\Skill.cs" />
     <Compile Include="Entities\SkillType.cs" />
     <Compile Include="Entities\Station.cs" />
+    <Compile Include="Entities\Unavailability.cs" />
+    <Compile Include="Entities\UnavailabilityReason.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\Watch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

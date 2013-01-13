@@ -30,10 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.0.0-alpha2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -47,10 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mappings\ApplianceMapping.cs" />
+    <Compile Include="Mappings\ApplianceOfflinePeriodMapping.cs" />
     <Compile Include="Mappings\CrewMemberMapping.cs" />
     <Compile Include="Mappings\SkillMapping.cs" />
     <Compile Include="Mappings\SkillTypeMapping.cs" />
     <Compile Include="Mappings\StationMapping.cs" />
+    <Compile Include="Mappings\UnavailabilityMapping.cs" />
+    <Compile Include="Mappings\UnavailabilityReasonMapping.cs" />
     <Compile Include="Mappings\UserProfileMapping.cs" />
     <Compile Include="Mappings\WatchMapping.cs" />
     <Compile Include="Migrations\Configuration.cs" />
