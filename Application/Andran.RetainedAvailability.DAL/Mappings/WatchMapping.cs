@@ -16,7 +16,8 @@ namespace Andran.RetainedAvailability.DAL.Mappings
 
             HasRequired(w => w.Station)
                 .WithMany(s => s.Watches)
-                .HasForeignKey(w => w.StationID);
+                .HasForeignKey(w => w.StationID)
+                .WillCascadeOnDelete(false);
 
             Property(p => p.Name)
                 .IsRequired()
