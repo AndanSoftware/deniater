@@ -18,6 +18,9 @@ namespace Andran.RetainedAvailability.Data.Entities
 
         public bool IsDriver { get; set; }
 
+        public Guid StationID { get; set; }
+        public Station Station { get; set; }
+
         public Guid WatchID { get; set; }
         public Watch Watch { get; set; }
 

@@ -29,6 +29,10 @@ namespace Andran.RetainedAvailability.DAL.Mappings
             Property(c => c.IsDriver)
                 .IsRequired();
 
+            HasRequired(c => c.Station)
+                .WithMany(s => s.CrewMembers)
+                .HasForeignKey(c => c.StationID);
+
             HasRequired(c => c.Watch)
                 .WithMany(w => w.CrewMembers)
                 .HasForeignKey(c => c.WatchID);
