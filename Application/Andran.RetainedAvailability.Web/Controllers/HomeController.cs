@@ -31,13 +31,5 @@ namespace Andran.RetainedAvailability.Web.Controllers
 
             return View();
         }
-
-        public Unavailability IsAvailable(Guid crewMemberID, int hour)
-        {
-            var _repo = new UnavailabilityRepository();
-
-            return  _repo.GetAvailabilityForDateTime(crewMemberID,
-                DateTime.Now.Date.AddHours(hour));
-        }
     }
 }
