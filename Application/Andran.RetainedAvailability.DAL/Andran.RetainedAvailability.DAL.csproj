@@ -63,6 +63,9 @@
     <Compile Include="Repositories\ApplianceRepository.cs" />
     <Compile Include="Repositories\ApplianceOfflinePeriodRepository.cs" />
     <Compile Include="Repositories\ApplianceOfflinePeriodReasonRepository.cs" />
+    <Compile Include="Repositories\UserProfileRepository.cs" />
+    <Compile Include="Repositories\UnavailabilityReasonRepository.cs" />
+    <Compile Include="Repositories\CrewMemberRepository.cs" />
     <Compile Include="Repositories\SkillTypeRepository.cs" />
     <Compile Include="Repositories\SkillRepository.cs" />
     <Compile Include="Repositories\UnavailabilityRepository.cs" />
