@@ -21,7 +21,7 @@ namespace Andran.RetainedAvailability.Data.Entities
         public Guid StationID { get; set; }
         public Station Station { get; set; }
 
-        public Guid WatchID { get; set; }
+        public Guid? WatchID { get; set; }
         public Watch Watch { get; set; }
 
         public ICollection<Skill> Skills { get; set; }

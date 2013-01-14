@@ -32,6 +32,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
             var stationRepo = new StationRepository();
             foreach (var station in stations)
             {
+                Console.WriteLine("*****{0}*****", station);
                 unavailabilityReasons = new UnavailabilityReasonRepository().GetUnavailabilityReasons(0, 100);
 
                 Station s = new Station();
@@ -40,8 +41,9 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                 s.Latitude = 100;
                 s.Longitude = 100;
                 s.StationID = Guid.NewGuid();
+                s.CrewMembers = new List<CrewMember>();
 
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     CrewMember cm = new CrewMember();
                     cm.CrewMemberID = Guid.NewGuid();
@@ -52,10 +54,10 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                     cm.StationID = s.StationID;
 
                     CreateUavForCM(cm, startDateTime, endDateTime);
-
                     s.CrewMembers.Add(cm);
+                    Console.WriteLine("CM {0} for {1}", i, station);
                 }
-
+                s.Appliances = new List<Appliance>();
                 for (int i = 0; i < 5; i++)
                 {
                     var app = new Appliance()
@@ -77,6 +79,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
         private static void CreateUavForCM(CrewMember cm, DateTime start, DateTime end)
         {
             int hourIncrement = rand.Next(0, 6);
+            cm.Unavailabilitys = new List<Unavailability>();
             do
             {
                 Unavailability uav = new Unavailability();
@@ -84,10 +87,11 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                 uav.End = uav.Start.AddHours(rand.Next(0, 6));
                 uav.UnavailabilityID = Guid.NewGuid();
                 uav.CrewMemberID = cm.CrewMemberID;
-
+                
                 uav.UnavailabilityReasonID = unavailabilityReasons.ElementAt(rand.Next(0, unavailabilityReasons.Count())).UnavailabilityReasonID;
-            
                 cm.Unavailabilitys.Add(uav);
+
+                hourIncrement += rand.Next(0, 14);
             } while (start.AddHours(hourIncrement) <= end);
         }
     }

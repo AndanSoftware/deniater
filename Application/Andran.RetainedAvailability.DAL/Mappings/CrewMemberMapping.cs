@@ -33,7 +33,7 @@ namespace Andran.RetainedAvailability.DAL.Mappings
                 .WithMany(s => s.CrewMembers)
                 .HasForeignKey(c => c.StationID);
 
-            HasRequired(c => c.Watch)
+            HasOptional(c => c.Watch)
                 .WithMany(w => w.CrewMembers)
                 .HasForeignKey(c => c.WatchID);
         }
