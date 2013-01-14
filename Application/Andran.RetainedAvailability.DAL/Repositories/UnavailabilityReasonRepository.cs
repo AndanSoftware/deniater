@@ -23,6 +23,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         public IEnumerable<UnavailabilityReason> GetUnavailabilityReasons(int start, int pageSize)
         {
             return _ctx.UnavailabilityReasons
+                .OrderBy(uavr => uavr.Symbol)
                 .Skip(start)
                 .Take(pageSize);
         }

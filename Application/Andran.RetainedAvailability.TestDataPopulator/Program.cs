@@ -29,9 +29,9 @@ namespace Andran.RetainedAvailability.TestDataPopulator
             Console.Write("End date: ");
             DateTime endDateTime = DateTime.Parse(Console.ReadLine());
 
+            var stationRepo = new StationRepository();
             foreach (var station in stations)
             {
-                var stationRepo = new StationRepository();
                 unavailabilityReasons = new UnavailabilityReasonRepository().GetUnavailabilityReasons(0, 100);
 
                 Station s = new Station();
@@ -45,8 +45,8 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                 {
                     CrewMember cm = new CrewMember();
                     cm.CrewMemberID = Guid.NewGuid();
-                    cm.FirstName = firstNames.ElementAt(rand.Next(0, 30));
-                    cm.LastName = lastNames.ElementAt(rand.Next(0, 30));
+                    cm.FirstName = firstNames.ElementAt(rand.Next(0, firstNames.Count()));
+                    cm.LastName = lastNames.ElementAt(rand.Next(0, lastNames.Count()));
                     cm.MobileNumber = "0001111";
                     cm.IsDriver = false;
                     cm.StationID = s.StationID;
@@ -63,7 +63,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                         ApplianceID = Guid.NewGuid(),
                         Capacity = 7,
                         MinimumCrewCount = 3,
-                        Name = appliances.ElementAt(rand.Next(0, 5)) + " Truck",
+                        Name = appliances.ElementAt(rand.Next(0, 4)) + " Truck",
                         StationID = s.StationID
                     };
                     s.Appliances.Add(app);
@@ -71,6 +71,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
 
                 stationRepo.InsertStation(s);
             }
+            stationRepo.SaveChanges();
         }
 
         private static void CreateUavForCM(CrewMember cm, DateTime start, DateTime end)

@@ -34,5 +34,10 @@ namespace Andran.RetainedAvailability.DAL.Repositories
                 .Take(pageSize)
                 .ToList();
         }
+
+        public void SaveChanges()
+        {
+            _ctx.SaveChanges();
+        }
     }
 }
