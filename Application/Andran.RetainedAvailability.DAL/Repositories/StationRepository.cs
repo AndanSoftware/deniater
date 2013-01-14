@@ -21,15 +21,21 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx.Stations.Add(station);
         }
 
+        public void DeleteStation(Station station)
+        {
+            _ctx.Stations.Remove(station);
+        }
+
         public Station GetStationByID(Guid id)
         {
             return _ctx.Stations
                 .FirstOrDefault(p => p.StationID == id);
         }
 
-        public IList<Station> GetStations(int start, int pageSize)
+        public IList<Station> GetStations(int start = 0, int pageSize = 0)
         {
             return _ctx.Stations
+                .OrderBy(s => s.Name)
                 .Skip(start)
                 .Take(pageSize)
                 .ToList();

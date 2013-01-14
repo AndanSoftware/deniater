@@ -24,9 +24,7 @@ namespace Andran.RetainedAvailability.DAL.Mappings
                 .WithMany(ap => ap.ApplianceOfflinePeriods)
                 .HasForeignKey(a => a.ApplianceID);
 
-            HasRequired(p => p.ApplianceOfflinePeriodReason)
-                .WithMany(p => p.ApplianceOfflinePeriods)
-                .HasForeignKey(p => p.ApplianceOfflinePeriodReasonID);
+            Property(p => p.ApplianceOfflineReason);
         }
     }
 }

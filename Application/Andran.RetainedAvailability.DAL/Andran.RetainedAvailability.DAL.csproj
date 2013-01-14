@@ -62,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplianceRepository.cs" />
     <Compile Include="Repositories\ApplianceOfflinePeriodRepository.cs" />
-    <Compile Include="Repositories\ApplianceOfflinePeriodReasonRepository.cs" />
     <Compile Include="Repositories\UnavailabilityReasonRepository.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Andran.RetainedAvailability.Data.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,6 @@ namespace Andran.RetainedAvailability.Data.Entities
         public Guid ApplianceID { get; set; }
         public Appliance Appliance { get; set; }
 
-        public Guid ApplianceOfflinePeriodReasonID { get; set; }
-        public ApplianceOfflinePeriodReason ApplianceOfflinePeriodReason { get; set; }
+        public ApplianceOfflineReasonEnum ApplianceOfflineReason { get; set; }
     }
 }

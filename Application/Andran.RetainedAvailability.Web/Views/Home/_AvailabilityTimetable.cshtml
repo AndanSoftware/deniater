@@ -2,20 +2,21 @@
 
 <table>
     <tr>
-        <td></td>
-        @for (int i = 0; i < 24; i++)
-        {
-            var dt = DateTime.Now.Date;
-            if (dt.AddHours(i).Hour != DateTime.Now.Hour)
+        <th>
+            @for (int i = 0; i < 24; i++)
             {
+                var dt = DateTime.Now.Date;
+                if (dt.AddHours(i).Hour != DateTime.Now.Hour)
+                {
                 <td class="timeCell)">@dt.AddHours(i).ToShortTimeString()</td>        
-            }
-            else 
-            {
+                }
+                else
+                {
                 <td class="timeCurrentCell)">@dt.AddHours(i).ToShortTimeString()</td>    
+                }
+
             }
-            
-        }
+        </th>
     </tr>
     @foreach (var cm in Model.CrewMembersForStation)
     {
@@ -26,14 +27,14 @@
                 if (@DateTime.Now.Hour == i)
                 {
                     // The affix class 'timeCurrentCell'
-                    <td class="uaCurrentCell"></td>
+                <td class="uaCurrentCell"></td>
                 }
-                else 
+                else
                 {
-                    <td class="uaCell"></td>
+                <td class="uaCell"></td>
                 }
                 // make call and calculate whether available for this slot
-                
+
             }
         </tr>
     }

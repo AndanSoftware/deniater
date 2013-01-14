@@ -13,7 +13,7 @@ namespace Andran.RetainedAvailability.Data.Entities
 
         public string Name { get; set; }
         public int MinimumCrewCount { get; set; }
-        public int? Capacity { get; set; }
+        public int? MaximumCrewCapacity { get; set; }
 
         public Guid StationID { get; set; }
         public Station Station { get; set; }

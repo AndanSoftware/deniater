@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="Entities\Appliance.cs" />
     <Compile Include="Entities\CrewMember.cs" />
-    <Compile Include="Entities\ApplianceOfflinePeriodReason.cs" />
     <Compile Include="Entities\ApplianceOfflinePeriod.cs" />
+    <Compile Include="Entities\Enums\ApplianceOfflineReasonEnum.cs" />
     <Compile Include="Entities\Skill.cs" />
     <Compile Include="Entities\SkillType.cs" />
     <Compile Include="Entities\Station.cs" />
@@ -53,9 +53,7 @@
     <Compile Include="Entities\Watch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

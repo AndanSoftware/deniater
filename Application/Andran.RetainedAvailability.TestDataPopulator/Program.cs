@@ -30,6 +30,12 @@ namespace Andran.RetainedAvailability.TestDataPopulator
             DateTime endDateTime = DateTime.Parse(Console.ReadLine());
 
             var stationRepo = new StationRepository();
+
+            foreach (var station in stationRepo.GetStations(0, 100))
+            {
+                stationRepo.DeleteStation(station);
+            }
+
             foreach (var station in stations)
             {
                 Console.WriteLine("*****{0}*****", station);
@@ -63,7 +69,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                     var app = new Appliance()
                     {
                         ApplianceID = Guid.NewGuid(),
-                        Capacity = 7,
+                        MaximumCrewCapacity = 7,
                         MinimumCrewCount = 3,
                         Name = appliances.ElementAt(rand.Next(0, 4)) + " Truck",
                         StationID = s.StationID
