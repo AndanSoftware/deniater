@@ -16,6 +16,11 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx = new RetainedAvailabilityContext();
         }
 
+        public void InsertWatch(Watch watch)
+        {
+            _ctx.Watches.Add(watch);
+        }
+
         public IList<Watch> GetWatches(int start, int pageSize)
         {
             return _ctx.Watches

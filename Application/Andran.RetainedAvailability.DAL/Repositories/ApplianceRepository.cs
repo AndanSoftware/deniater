@@ -17,7 +17,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         }
 
         // Pagination
-        public IList<Appliance> GetAppliancesByStationID(Guid stationID, int start, int pageSize)
+        public IEnumerable<Appliance> GetAppliancesByStationID(Guid stationID, int start, int pageSize)
         {
             return _ctx.Appliances
                 .Where(a => a.StationID == stationID)
