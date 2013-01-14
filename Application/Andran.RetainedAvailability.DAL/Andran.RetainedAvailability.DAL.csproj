@@ -61,6 +61,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ApplianceRepository.cs" />
+    <Compile Include="Repositories\UnavailabilityRepository.cs" />
     <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\WatchRepository.cs" />
     <Compile Include="RetainedAvailabilityContext.cs" />

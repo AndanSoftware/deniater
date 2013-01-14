@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Andran.RetainedAvailability.DAL;
+using Andran.RetainedAvailability.DAL.Repositories;
+using Andran.RetainedAvailability.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,6 +30,14 @@ namespace Andran.RetainedAvailability.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public Unavailability IsAvailable(Guid crewMemberID, int hour)
+        {
+            var _repo = new UnavailabilityRepository();
+
+            return  _repo.GetAvailabilityForDateTime(crewMemberID,
+                DateTime.Now.Date.AddHours(hour));
         }
     }
 }

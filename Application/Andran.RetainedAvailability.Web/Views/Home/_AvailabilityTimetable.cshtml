@@ -1,0 +1,36 @@
+﻿@model Andran.RetainedAvailability.Web.Models.ViewModels.AvailabilityTimetableViewModel
+
+<table>
+    <tr>
+        <td></td>
+        @for (int i = 0; i < 24; i++)
+        {
+            var dt = DateTime.Now.Date;
+            if (dt.AddHours(i).Hour != DateTime.Now.Hour)
+            {
+                <td class="timeCell)">@dt.AddHours(i).ToShortTimeString()</td>        
+            }
+            else 
+            {
+                <td class="timeCurrentCell)">@dt.AddHours(i).ToShortTimeString()</td>    
+            }
+            
+        }
+    </tr>
+    @foreach (var cm in Model.CrewMembersForStation)
+    {
+        <tr>
+            <td class="crewMemberCell">@cm.FirstName @cm.LastName</td>
+            @for (int i = 0; i < 24; i++)
+            {
+                if (@DateTime.Now.Hour == i)
+                {
+                    // The affix class 'timeCurrentCell'
+                }
+                // make call and calculate whether available for this slot
+                
+            }
+        </tr>
+    }
+
+</table>
