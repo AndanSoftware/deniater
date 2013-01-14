@@ -23,6 +23,7 @@ namespace Andran.RetainedAvailability.DAL.Mappings
                 .HasMaxLength(50);
 
             Property(p => p.Symbol)
+                .HasMaxLength(1)
                 .IsRequired();
         }
     }

@@ -10,7 +10,7 @@ namespace Andran.RetainedAvailability.Data.Entities
     {
         public Guid UnavailabilityReasonID { get; set; }
 
-        public char Symbol { get; set; }
+        public string Symbol { get; set; }
         public string ColourHex { get; set; }
         public string Description { get; set; }
 
