@@ -31,5 +31,10 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             return _ctx.Appliances
                 .FirstOrDefault(a => a.ApplianceID == applianceID);
         }
+
+        public void InsertAppliance(Appliance appliance)
+        {
+            _ctx.Appliances.Add(appliance);
+        }
     }
 }
