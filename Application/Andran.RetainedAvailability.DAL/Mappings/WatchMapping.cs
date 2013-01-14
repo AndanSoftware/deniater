@@ -25,9 +25,6 @@ namespace Andran.RetainedAvailability.DAL.Mappings
             Property(p => p.Colour)
                 .IsRequired()
                 .HasMaxLength(10);
-
-            Property(p => p.StationID)
-                .IsRequired();
         }
     }
 }
