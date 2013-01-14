@@ -16,7 +16,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx = new RetainedAvailabilityContext();
         }
 
-        public void Station(Station station)
+        public void InsertStation(Station station)
         {
             _ctx.Stations.Add(station);
         }

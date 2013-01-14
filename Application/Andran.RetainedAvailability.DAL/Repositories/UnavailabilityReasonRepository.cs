@@ -20,5 +20,11 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         {
             _ctx.UnavailabilityReasons.Add(unavailabilityReason);
         }
+        public IEnumerable<UnavailabilityReason> GetUnavailabilityReasons(int start, int pageSize)
+        {
+            return _ctx.UnavailabilityReasons
+                .Skip(start)
+                .Take(pageSize);
+        }
     }
 }
