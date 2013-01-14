@@ -68,7 +68,6 @@
     <Compile Include="Repositories\CrewMemberRepository.cs" />
     <Compile Include="Repositories\SkillTypeRepository.cs" />
     <Compile Include="Repositories\SkillRepository.cs" />
-    <Compile Include="Repositories\UnavailabilityReasonRepository.cs" />
     <Compile Include="Repositories\UnavailabilityRepository.cs" />
     <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\WatchRepository.cs" />
