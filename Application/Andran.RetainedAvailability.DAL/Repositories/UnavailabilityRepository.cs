@@ -28,9 +28,9 @@ namespace Andran.RetainedAvailability.DAL.Repositories
 
         }
 
-        public IList<Unavailability> GetUnavailabilityForADay(Guid stationId, DateTime dateToRetrieve)
+        public IEnumerable<Unavailability> GetUnavailabilityForADay(Guid stationId, DateTime dateToRetrieve)
         {
-            var r = _ctx.Unavailability
+            var unavailabilitiesForSuppliedDate = _ctx.Unavailability
                 // Include the reason navigation property
                 .Include("UnavailabilityReason")
 
@@ -51,6 +51,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
                 // Only retrieve unavailability for the date passed in
                 .Where(uav => uav.Start.Date == dateToRetrieve.Date);
 
+            return unavailabilitiesForSuppliedDate;
         }
     }
 }
