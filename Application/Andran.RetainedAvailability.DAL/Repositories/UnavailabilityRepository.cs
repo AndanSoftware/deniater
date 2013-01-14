@@ -16,14 +16,14 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx = new RetainedAvailabilityContext();
         }
 
-        public Unavailability GetAvailabilityForDateTime(Guid crewMemberID, DateTime period)
+        public IEnumerable<Unavailability> GetAvailabilityForDateTime(Guid crewMemberID, DateTime period)
         {
             // Inclusive availability check
-            return _ctx.Unavailability
-                .FirstOrDefault(p =>
+            return _ctx.Unavailability.Include("UnavailabilityReason")
+                .Where(p =>
                     p.CrewMemberID == crewMemberID
-                    && p.Start <= period
-                    && p.End >= p.End);
+                    && p.Start >= period
+                    && p.End <= p.End);
 
 
         }
