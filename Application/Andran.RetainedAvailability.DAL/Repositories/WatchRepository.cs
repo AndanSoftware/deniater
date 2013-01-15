@@ -21,7 +21,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx.Watches.Add(watch);
         }
 
-        public IList<Watch> GetWatches(int start, int pageSize)
+        public IList<Watch> GetWatches(int start = 0, int pageSize = Int32.MaxValue)
         {
             return _ctx.Watches
                 .Skip(start)

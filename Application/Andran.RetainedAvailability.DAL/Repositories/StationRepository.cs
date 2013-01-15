@@ -29,7 +29,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         public Station GetStationByID(Guid id)
         {
             return _ctx.Stations
-                .FirstOrDefault(p => p.StationID == id);
+                .SingleOrDefault(p => p.StationID == id);
         }
 
         public IList<Station> GetStations(int start = 0, int pageSize = 0)

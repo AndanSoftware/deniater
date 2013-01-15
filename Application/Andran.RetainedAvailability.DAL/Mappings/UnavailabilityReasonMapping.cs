@@ -14,6 +14,8 @@ namespace Andran.RetainedAvailability.DAL.Mappings
         {
             HasKey(ur => ur.UnavailabilityReasonID);
 
+            ToTable("LT_UnavailabilityReason");
+
             Property(p => p.ColourHex)
                 .IsRequired()
                 .HasMaxLength(6);

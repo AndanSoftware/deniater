@@ -21,7 +21,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
             _ctx.UnavailabilityReasons.Add(unavailabilityReason);
         }
 
-        public IEnumerable<UnavailabilityReason> GetUnavailabilityReasons(int start, int pageSize)
+        public IEnumerable<UnavailabilityReason> GetUnavailabilityReasons(int start = 0, int pageSize = 0)
         {
             return _ctx.UnavailabilityReasons
                     .OrderBy(uavr => uavr.Symbol)

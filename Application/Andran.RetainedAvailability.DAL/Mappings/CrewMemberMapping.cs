@@ -22,9 +22,13 @@ namespace Andran.RetainedAvailability.DAL.Mappings
                 .IsRequired()
                 .HasMaxLength(20);
 
-            Property(c => c.MobileNumber)
+            Property(c => c.PersonalMobileNumber)
                 .IsRequired()
-                .HasMaxLength(11);
+                .HasMaxLength(20);
+
+            Property(c => c.IssuedMobileNumber)
+                .IsRequired()
+                .HasMaxLength(20);
 
             Property(c => c.IsDriver)
                 .IsRequired();

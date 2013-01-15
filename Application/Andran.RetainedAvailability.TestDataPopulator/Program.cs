@@ -55,7 +55,7 @@ namespace Andran.RetainedAvailability.TestDataPopulator
                     cm.CrewMemberID = Guid.NewGuid();
                     cm.FirstName = firstNames.ElementAt(rand.Next(0, firstNames.Count()));
                     cm.LastName = lastNames.ElementAt(rand.Next(0, lastNames.Count()));
-                    cm.MobileNumber = "0001111";
+                    cm.PersonalMobileNumber = "0001111";
                     cm.IsDriver = false;
                     cm.StationID = s.StationID;
 

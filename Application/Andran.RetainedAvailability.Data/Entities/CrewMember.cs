@@ -14,7 +14,9 @@ namespace Andran.RetainedAvailability.Data.Entities
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string MobileNumber { get; set; }
+
+        public string IssuedMobileNumber { get; set; }
+        public string PersonalMobileNumber { get; set; }
 
         public bool IsDriver { get; set; }
 

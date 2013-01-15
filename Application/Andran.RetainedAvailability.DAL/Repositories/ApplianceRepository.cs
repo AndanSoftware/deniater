@@ -29,7 +29,7 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         public Appliance GetApplianceByID(Guid applianceID)
         {
             return _ctx.Appliances
-                .FirstOrDefault(a => a.ApplianceID == applianceID);
+                .SingleOrDefault(a => a.ApplianceID == applianceID);
         }
 
         public void InsertAppliance(Appliance appliance)

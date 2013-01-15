@@ -20,5 +20,11 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         {
             _ctx.CrewMembers.Add(crewMember);
         }
+
+        public CrewMember GetCrewMemberByID(Guid crewMemberID)
+        {
+            return _ctx.CrewMembers
+                .SingleOrDefault(c => c.CrewMemberID == crewMemberID);
+        }
     }
 }
