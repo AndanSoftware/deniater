@@ -17,17 +17,23 @@ namespace Andran.RetainedAvailability.DAL
 
         }
 
-        // Tables
+        // Entity Tables
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Station> Stations { get; set; }
         public DbSet<Appliance> Appliances { get; set; }
         public DbSet<CrewMember> CrewMembers { get; set; }
-        public DbSet<Skill> Skills { get; set; }
         public DbSet<SkillType> SkillTypes { get; set; }
         public DbSet<Watch> Watches { get; set; }
-
         public DbSet<ApplianceOfflinePeriod> ApplianceOfflinePeriods { get; set; }
+
+        //Data Tables
         public DbSet<Unavailability> Unavailability { get; set; }
+
+        // Link Tables
+        public DbSet<Skill> Skills { get; set; }
+
+        // Lookup Tables
+        public DbSet<Rank> Ranks { get; set; }
         public DbSet<UnavailabilityReason> UnavailabilityReasons { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,6 +50,7 @@ namespace Andran.RetainedAvailability.DAL
             modelBuilder.Configurations.Add(new UnavailabilityMapping());
             modelBuilder.Configurations.Add(new UnavailabilityReasonMapping());
             modelBuilder.Configurations.Add(new ApplianceOfflinePeriodMapping());
+            modelBuilder.Configurations.Add(new RankMapping());
 
             base.OnModelCreating(modelBuilder);
         }
