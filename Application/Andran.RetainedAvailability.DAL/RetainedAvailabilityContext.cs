@@ -25,6 +25,7 @@ namespace Andran.RetainedAvailability.DAL
         public DbSet<SkillType> SkillTypes { get; set; }
         public DbSet<Watch> Watches { get; set; }
         public DbSet<ApplianceOfflinePeriod> ApplianceOfflinePeriods { get; set; }
+        public DbSet<UnavailabilitySeries> UnavailabilitySeriess { get; set; }
 
         //Data Tables
         public DbSet<Unavailability> Unavailability { get; set; }
@@ -51,6 +52,7 @@ namespace Andran.RetainedAvailability.DAL
             modelBuilder.Configurations.Add(new UnavailabilityReasonMapping());
             modelBuilder.Configurations.Add(new ApplianceOfflinePeriodMapping());
             modelBuilder.Configurations.Add(new RankMapping());
+            modelBuilder.Configurations.Add(new UnavailabilitySeriesMapping());
 
             base.OnModelCreating(modelBuilder);
         }

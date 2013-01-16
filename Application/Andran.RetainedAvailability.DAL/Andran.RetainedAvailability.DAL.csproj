@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Mappings\ApplianceMapping.cs" />
     <Compile Include="Mappings\ApplianceOfflinePeriodMapping.cs" />
+    <Compile Include="Mappings\UnavailabilitySeries.cs" />
     <Compile Include="Mappings\RankMapping.cs" />
     <Compile Include="Mappings\CrewMemberMapping.cs" />
     <Compile Include="Mappings\SkillMapping.cs" />

@@ -13,6 +13,9 @@ namespace Andran.RetainedAvailability.Data.Entities
         public Guid CrewMemberID { get; set; }
         public CrewMember CrewMember { get; set; }
 
+        public Guid? UnavailabilitySeriesID { get; set; }
+        public UnavailabilitySeries UnavailabilitySeries { get; set; }
+
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 

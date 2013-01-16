@@ -44,12 +44,14 @@
     <Compile Include="Entities\CrewMember.cs" />
     <Compile Include="Entities\ApplianceOfflinePeriod.cs" />
     <Compile Include="Entities\Enums\ApplianceOfflineReasonEnum.cs" />
+    <Compile Include="Entities\Enums\UnavailabilitySeriesTypeEnum.cs" />
     <Compile Include="Entities\Rank.cs" />
     <Compile Include="Entities\Skill.cs" />
     <Compile Include="Entities\SkillType.cs" />
     <Compile Include="Entities\Station.cs" />
     <Compile Include="Entities\Unavailability.cs" />
     <Compile Include="Entities\UnavailabilityReason.cs" />
+    <Compile Include="Entities\UnavailabilitySeries.cs" />
     <Compile Include="Entities\UserProfile.cs" />
     <Compile Include="Entities\Watch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
