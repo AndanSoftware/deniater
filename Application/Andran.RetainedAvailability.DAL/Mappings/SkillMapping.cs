@@ -14,11 +14,17 @@ namespace Andran.RetainedAvailability.DAL.Mappings
         {
             HasKey(s => s.SkillID);
 
-            ToTable("Link_CrewMember_Skill");
+            ToTable("Link_CrewMember_SkillType");
 
             HasRequired(s => s.SkillType)
                 .WithMany(st => st.Skills)
                 .HasForeignKey(s => s.SkillTypeID);
+
+            Property(p => p.ExpiryDate)
+                .IsOptional();
+
+            Property(p => p.Reference)
+                .IsOptional();
         }
     }
 }

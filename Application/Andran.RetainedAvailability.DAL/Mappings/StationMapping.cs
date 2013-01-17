@@ -27,6 +27,9 @@ namespace Andran.RetainedAvailability.DAL.Mappings
 
             Property(s => s.Longitude)
                 .IsRequired();
+
+            Property(p => p.MinimumCrewCount)
+                .IsRequired();
         }
     }
 }

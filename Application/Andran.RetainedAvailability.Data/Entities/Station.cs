@@ -16,6 +16,8 @@ namespace Andran.RetainedAvailability.Data.Entities
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
+        public int MinimumCrewCount { get; set; }
+
         public ICollection<CrewMember> CrewMembers { get; set; }
         public ICollection<Appliance> Appliances { get; set; }
         public ICollection<Watch> Watches { get; set; }
