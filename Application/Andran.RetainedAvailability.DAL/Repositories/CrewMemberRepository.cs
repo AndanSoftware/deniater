@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace Andran.RetainedAvailability.DAL.Repositories
 {
-    public class CrewMemberRepository
+    public class CrewMemberRepository :IDisposable
     {
         private RetainedAvailabilityContext _ctx;
 
         public CrewMemberRepository()
         {
             _ctx = new RetainedAvailabilityContext();
+        }
+
+        public void Dispose()
+        {
+            this.Dispose();
         }
 
         public void InsertCrewMember(CrewMember crewMember)
@@ -25,6 +30,12 @@ namespace Andran.RetainedAvailability.DAL.Repositories
         {
             return _ctx.CrewMembers
                 .SingleOrDefault(c => c.CrewMemberID == crewMemberID);
+        }
+
+        public IEnumerable<CrewMember> GetCrewMembersByStationID(Guid stationID)
+        {
+            return _ctx.CrewMembers
+                .Where(c => c.StationID == stationID);
         }
     }
 }

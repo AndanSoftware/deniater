@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace Andran.RetainedAvailability.DAL.Repositories
 {
-    public class UnavailabilityRepository
+    public class UnavailabilityRepository :IDisposable
     {
         private RetainedAvailabilityContext _ctx;
 
         public UnavailabilityRepository()
         {
             _ctx = new RetainedAvailabilityContext();
+        }
+
+        public void Dispose()
+        {
+            this.Dispose();
         }
 
         public void InsertUnavailability(Unavailability unavailability)

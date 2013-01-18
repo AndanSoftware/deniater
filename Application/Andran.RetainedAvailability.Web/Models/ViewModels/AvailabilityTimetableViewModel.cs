@@ -11,6 +11,6 @@ namespace Andran.RetainedAvailability.Web.Models.ViewModels
         public Guid StationID { get; set; }
 
         public IEnumerable<CrewMember> CrewMembersForStation { get; set; }
-        public IEnumerable<ApplianceOfflinePeriod> ApplianceOfflinePeriods { get; set; }
+        public IQueryable<Unavailability> Unavailability { get; set; }
     }
 }
